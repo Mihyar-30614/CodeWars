@@ -214,3 +214,8 @@ function floor(number){
 	var splited = number.toString().split(".");
 	return parseInt(splited[0]);
 }
+
+function hsbjh(){
+
+	return 
+}
