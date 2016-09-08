@@ -214,3 +214,30 @@ function floor(number){
 	var splited = number.toString().split(".");
 	return parseInt(splited[0]);
 }
+
+var sumDigits = function (string) {
+	var sum = 0;
+	for (var i = 0; i < string.length; i++) {
+		sum += +string[i]
+	}
+	return sum;
+}
+
+var orderWeight = function (string) {
+	var array = string.split(" ");
+	var result = [];
+	for (var i = 0; i < array.length; i++) {
+		if (result.length === 0) {
+			result.push(array[i]);
+		}else{
+			var s=0;
+			for (var j = 0; j < result.length; j++) {
+				if (sumDigits(array[i])<sumDigits(result[j])) {
+					s=j;
+				}
+			}
+					result.splice(j,0,array[i]);
+		}
+	}
+	return result;
+}
