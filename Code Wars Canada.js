@@ -30,3 +30,21 @@ var balancedParens = function (input) {
    return stack.length === 0;
 }
 
+// my solution
+function pigIt(str){
+  var array = str.split(" ");
+  for (var i = 0; i < array.length; i++) {
+  	array[i] = array[i].split("");
+  	array[i].push(array[i].shift());
+  	array[i].push('ay');
+  	array[i] = array[i].join("");
+  }
+  return array.join(" ");
+}
+
+// code war solution 
+function pigIt(str){
+  return str.split(' ').map(function(word) {
+    return word.slice(1) + word[0] + 'ay';
+  }).join(' ');
+}
