@@ -48,3 +48,65 @@ function pigIt(str){
     return word.slice(1) + word[0] + 'ay';
   }).join(' ');
 }
+
+// compare two objects values and see how much
+function cakes(recipe, available){
+  return Object.keys(recipe).reduce(function(val, ingredient) {
+    return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), val)
+    }, Infinity)
+}
+
+var input = [7, 2, 3, 0, 4, 6, 0, 0, 13, 0, 78, 0, 0, 19, 14];
+
+function removeZeros(array) {
+  var last = array[array.length-1];
+  var limit = array.length;
+  for(var i=0; i<limit; i++){
+    if (array[i] !== last) {
+      if(array[i] === 0){
+        var temp = array.splice(i,1);
+        array[array.length] = temp[0];
+        i--;
+      }
+    }else{
+      return array;
+    }
+  }
+}
+
+function lastDigit(as){
+  var result = 1;
+  var add = 0;
+  for (var i = 0; i < as.length; i++) {
+    add += as[i];
+  }
+  if (add === 0 || add === undefined) {
+    return result;
+  }
+}
+
+function solution(number){
+var roman = {M:1000,CM:900, D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1 };
+var ans = '';
+  while(number>0){
+      for(a in roman){ 
+          if(roman[a]<=number){
+           ans += a; 
+           number-=roman[a];
+            break;
+          }    
+      }
+  }
+return ans;
+}
+
+function getGoodOldDay(input){
+    // return day of week
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    input = input.split("-");
+    var date = new Date();
+    date.setDate(parseInt(input[0]));
+    date.setMonth(parseInt(input[1])-1);
+    date.setFullYear(parseInt(input[2]));
+    return days[date.getDay()];
+};
